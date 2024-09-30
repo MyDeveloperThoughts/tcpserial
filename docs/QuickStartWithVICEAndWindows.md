@@ -66,7 +66,7 @@ Lets first make sure our modem emulation is working.
 Type the word **at** and press enter.  
 If you see the word **ok** you are good to go.  
 
-The Commodore BBS Output website contains a list of active BBSes that you can connect to over the internet.  
+The Commodore BBS Outpost website contains a list of active BBSes that you can connect to over the internet.  
 Some of these are running on actual Commodore hardware.  
 http://cbbsoutpost.servebbs.com/
 
