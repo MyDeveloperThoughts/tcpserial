@@ -6,6 +6,16 @@ I created this project because I wanted an easy way to call Commodore bulletin b
 ## License
 This code is under the [GNU General Public License, version 2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) license.
 
+## How to download and run TCPSerial
+https://github.com/MyDeveloperThoughts/tcpserial  
+On the right side of the screen there is a section titled Releases  
+Click on the Latest release hyperlink  
+Download the TCPSerial-1.xx.zip file  
+Unzip it to a directory  
+On Windows:  TCPSerial.bat  
+or  
+Any platform including Windows:  java -jar TCPSerial.jar
+
 ## Documentation
 [Quick Start Guide for VICE and Windows](docs/QuickStartWithVICEAndWindows.md)  
 [ Emulated Hayes commands and registers ](docs/HayesCommands.md)
