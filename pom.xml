@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.mdv.tcpser</groupId>
+    <artifactId>tcpser</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.release>21</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <!-- For Unit testing -->
+        <dependency>
+            <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter -->
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.11.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>TCPSerial</finalName>
+        <plugins>
+            <plugin>
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-enforcer-plugin -->
+                <!-- https://github.com/apache/maven-enforcer/releases -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>3.5.0</version>
+                <executions>
+                    <execution>
+                        <id>enforce-versions</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireMavenVersion>
+                                    <version>3.9.9</version>
+                                </requireMavenVersion>
+                                <requireJavaVersion>
+                                    <version>21.0.4</version>
+                                </requireJavaVersion>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
+                <!-- https://github.com/apache/maven-compiler-plugin/releases -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+                <configuration>
+                    <compilerArgs>
+                        <arg>-parameters</arg>
+
+                        <!-- This will cause warnings to stop compilation.  Such as when someone imports a bizarre sun. package by accident like sun.print.PrinterJobWrapper-->
+                        <arg>-Werror</arg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-clean-plugin -->
+                <!-- https://github.com/apache/maven-clean-plugin/releases -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>3.4.0</version>
+                <executions>
+                    <execution>
+                        <id>auto-clean</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-jar-plugin -->
+            <!-- https://github.com/apache/maven-jar-plugin/releases -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.4.2</version>
+                <configuration>
+                    <archive>
+                        <addMavenDescriptor>false</addMavenDescriptor>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>org.mdt.tcpmodem.Main</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
+            <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-resources-plugin -->
+            <!-- https://github.com/apache/maven-resources-plugin/releases -->
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.3.1</version>
+                <executions>
+                    <execution>
+                        <id>root-level-resources</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+
+                        <configuration>
+                            <outputDirectory>${basedir}/target/release</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${basedir}</directory>
+                                    <includes>
+                                        <include>config.xml</include>
+                                        <include>config.xsd</include>
+                                    </includes>
+                                </resource>
+                                <resource>
+                                    <directory>${basedir}/target</directory>
+                                    <includes>
+                                        <include>TCPSerial.jar</include>
+                                    </includes>
+                                </resource>
+                                <resource>
+                                    <directory>${basedir}/notes</directory>
+                                    <includes>
+                                        <include>TCPSerial.bat</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>audio-files-for-dev</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+
+                        <configuration>
+                            <outputDirectory>${basedir}/target/audio</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${basedir}/audio</directory>
+                                    <includes>
+                                        <include>busy.wav</include>
+                                        <include>dial_tone.wav</include>
+                                        <include>eight.au</include>
+                                        <include>five.au</include>
+                                        <include>four.au</include>
+                                        <include>hash.au</include>
+                                        <include>nine.au</include>
+                                        <include>one.au</include>
+                                        <include>ring.wav</include>
+                                        <include>ring6.wav</include>
+                                        <include>seven.au</include>
+                                        <include>six.au</include>
+                                        <include>star.au</include>
+                                        <include>three.au</include>
+                                        <include>two.au</include>
+                                        <include>V90.wav</include>
+                                        <include>zero.au</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>audio-files-for-release</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+
+                        <configuration>
+                            <outputDirectory>${basedir}/target/release/audio</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${basedir}/audio</directory>
+                                    <includes>
+                                        <include>busy.wav</include>
+                                        <include>dial_tone.wav</include>
+                                        <include>eight.au</include>
+                                        <include>five.au</include>
+                                        <include>four.au</include>
+                                        <include>hash.au</include>
+                                        <include>nine.au</include>
+                                        <include>one.au</include>
+                                        <include>ring.wav</include>
+                                        <include>ring6.wav</include>
+                                        <include>seven.au</include>
+                                        <include>six.au</include>
+                                        <include>star.au</include>
+                                        <include>three.au</include>
+                                        <include>two.au</include>
+                                        <include>V90.wav</include>
+                                        <include>zero.au</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
+                <!-- https://github.com/apache/maven-surefire/releases -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.5.0</version>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

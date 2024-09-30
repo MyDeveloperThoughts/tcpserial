@@ -1,0 +1,25 @@
+<Settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="config.xsd">
+
+    <ModemPool>
+        <Line port="6400"/>
+
+        <Modem name="C64 Modem" type="ip232" port="25232" speed="38400" playModemSounds="NO">
+
+            <!-- http://cbbsoutpost.servebbs.com/ has a list of active Commodore BBS -->
+            <!-- To use: ATDT 101 -->
+            <PhoneBookEntry number="101" value="8bit.hoyvision.com:6400"/>
+            <PhoneBookEntry number="102" value="streetcorner.ddns.net:6400"/>
+
+            <Initialization>s0=2</Initialization>         <!-- Answer phone after 2 rings -->
+            <Initialization>s5=20</Initialization>        <!-- Delete key for Commodore is 20.  -->
+            <!-- <Initialization>s5=8</Initialization>         Delete key for PC, Mac, Linux etc. computers is  8. -->
+
+            <EventAction type="audio" action="dial" direction="local" content="dial_tone.wav"/>
+            <EventAction type="java" action="dial" direction="local" content="org.mdt.tcpmodem.hayes.dialaudio.DialAudioEventAction"/>
+            <EventAction type="audio" action="dial" direction="local" content="ring.wav"/>
+            <EventAction type="audio" action="pre_connect" direction="local" content="V90.wav"/>
+            <EventAction type="audio" action="ring" direction="local" content="ring6.wav" asynchronous="true"/>
+            <EventAction type="audio" action="pre_answer" direction="local" content="V90.wav"/>
+        </Modem>
+    </ModemPool>
+</Settings>

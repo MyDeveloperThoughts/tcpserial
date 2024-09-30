@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element name="Settings">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="ModemPool" minOccurs="0" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="ModemPool">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="Line" minOccurs="0"/>
+                <xsd:element name="Modem" type="ModemInfo" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="Line">
+        <xsd:complexType>
+            <xsd:attribute name="port" type="xsd:integer"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:complexType name="ModemInfo">
+        <xsd:sequence>
+            <xsd:element name="PhoneBookEntry" type="PhoneBookEntry" minOccurs="0" maxOccurs="unbounded"/>
+            <xsd:element name="Initialization" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+            <xsd:element name="EventAction" type="EventActionInfo" minOccurs="0" maxOccurs="unbounded"/>
+            <xsd:element name="CaptiveModem" type="ModemInfo" minOccurs="0"/>
+        </xsd:sequence>
+        <xsd:attribute name="name" type="xsd:string"/>
+        <xsd:attribute name="type" type="modemTypes"/>
+        <xsd:attribute name="playModemSounds" type="booleanYESNO"/>
+        <xsd:attribute name="port" type="xsd:string"/>
+        <xsd:attribute name="speed" type="xsd:integer"/>
+        <xsd:attribute name="parity" type="xsd:string"/>
+        <xsd:attribute name="stopbits" type="xsd:integer"/>
+        <xsd:attribute name="invertDCD" type="xsd:boolean"/>
+    </xsd:complexType>
+    <xsd:complexType name="EventActionInfo">
+        <xsd:attribute name="type" type="xsd:string"/>
+        <xsd:attribute name="action" type="ActionList"/>
+        <xsd:attribute name="direction" type="DirectionList"/>
+        <xsd:attribute name="content" type="xsd:string"/>
+        <xsd:attribute name="iterations" type="xsd:integer"/>
+        <xsd:attribute name="asynchronous" type="xsd:boolean"/>
+    </xsd:complexType>
+    <xsd:simpleType name="ActionList">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="ring"/>
+            <xsd:enumeration value="cmd_mode"/>
+            <xsd:enumeration value="data_mode"/>
+            <xsd:enumeration value="off_hook"/>
+            <xsd:enumeration value="on_hook"/>
+            <xsd:enumeration value="pre_answer"/>
+            <xsd:enumeration value="answer"/>
+            <xsd:enumeration value="pre_connect"/>
+            <xsd:enumeration value="connect"/>
+            <xsd:enumeration value="dial"/>
+            <xsd:enumeration value="busy"/>
+            <xsd:enumeration value="no_answer"/>
+            <xsd:enumeration value="hangup"/>
+            <xsd:enumeration value="inactivity"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="DirectionList">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="local"/>
+            <xsd:enumeration value="remote"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="PhoneBookEntry">
+        <xsd:attribute name="number" type="xsd:string"/>
+        <xsd:attribute name="value" type="xsd:string"/>
+    </xsd:complexType>
+
+    <xsd:simpleType name="modemTypes">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="ip232"/>
+            <xsd:enumeration value="remote232"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="booleanYESNO">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="YES"/>
+            <xsd:enumeration value="NO"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>
