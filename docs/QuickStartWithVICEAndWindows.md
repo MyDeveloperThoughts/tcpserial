@@ -75,7 +75,7 @@ When you see one you like, you can connect to it by typing:
 
 ## Step 7: Cleaning up
 Once you have finished visiting some BBSes, you can safely exit out of VICE.      
-You can press Control-C to end TCP Serial (or just close thw command window).  
+You can press Control-C to end TCP Serial (or just close the command window).  
 
 ## Bonus:  Connecting to BBSs with the sounds of the 80s
 Edit the **config.xml** file that came with TCPSerial.    
