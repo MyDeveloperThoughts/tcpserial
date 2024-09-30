@@ -13,7 +13,7 @@ Java is **not** installed if you see something like this:
     c:\> java -version
     'java' is not recognized as an internal or external command,
     operable program or batch file.
-You will need to install Java if it is not installed, or the version installed is not at least 21
+You will need to install Java if it is not installed, or the version installed is not at least 21.  
 Java can be easily downloaded and installed from various web sites including:
 
 * https://adoptium.net/
