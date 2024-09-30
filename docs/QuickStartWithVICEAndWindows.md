@@ -1,8 +1,6 @@
 # TCPSerial Quick Start with VICE C64 Emulator on Windows 
 ## Step 1: Check if Java is installed
 Open a command prompt and type **java -version**  
-You should see something like this:  
-
 Java is installed if you see something like this:
 
     c:\> java -version 
