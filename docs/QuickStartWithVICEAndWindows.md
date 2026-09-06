@@ -4,9 +4,9 @@ Open a command prompt and type **java -version**
 Java is installed if you see something like this:
 
     c:\> java -version 
-    java version "21.0.4" 2024-07-16 LTS
-    Java(TM) SE Runtime Environment (build 21.0.4+8-LTS-274)
-    Java HotSpot(TM) 64-Bit Server VM (build 21.0.4+8-LTS-274, mixed mode, sharing)
+    java version "25.0.4" 2026-07-21 LTS
+    Java(TM) SE Runtime Environment (build 25.0.4+7-LTS-189)
+    Java HotSpot(TM) 64-Bit Server VM (build 25.0.4+7-LTS-189, mixed mode, sharing)
 
 Java is **not** installed if you see something like this:
 
@@ -29,9 +29,9 @@ In a command prompt, type commands similar to this:
     c:\> cd \commodore\tcpserial
     c:\> TCPSerial
     ECHO is off.
-    Sep 29, 2024 6:58:16 PM   INFO    Version:showStartupMessage  TCPSerial v1.0 released on Oct 1, 2024
+    Sep 29, 2024 6:58:16 PM   INFO    Version:showStartupMessage  TCPSerial v1.1 released on Sep 6, 2026
     Sep 29, 2024 6:58:16 PM   INFO    Version:showStartupMessage  Java Version Information:
-    Sep 29, 2024 6:58:16 PM   INFO    Version:showStartupMessage    Java HotSpot(TM) 64-Bit Server VM 21.0.4+8-LTS-274
+    Sep 29, 2024 6:58:16 PM   INFO    Version:showStartupMessage    Java HotSpot(TM) 64-Bit Server VM 25.0.4+7-LTS-189
     Sep 29, 2024 6:58:16 PM   INFO    Version:showStartupMessage    Oracle Corporation
     Sep 29, 2024 6:58:16 PM   INFO    Version:showStartupMessage  Press Control-C to stop
     Sep 29, 2024 6:58:16 PM   INFO    ModemPoolThread:<init>      [C64 Modem] Type: ip232  Port: 25232  Speed: 38400bps.

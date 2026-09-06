@@ -9,17 +9,17 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.release>21</maven.compiler.release>
+        <maven.compiler.release>25</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
         <!-- For Unit testing -->
         <dependency>
-            <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter -->
+            <!-- https://central.sonatype.com/artifact/org.junit.jupiter/junit-jupiter/versions -->
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>5.11.1</version>
+            <version>6.1.3</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -28,7 +28,7 @@
         <finalName>TCPSerial</finalName>
         <plugins>
             <plugin>
-                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-enforcer-plugin -->
+                <!-- https://central.sonatype.com/artifact/org.apache.maven.plugins/maven-enforcer-plugin/versions -->
                 <!-- https://github.com/apache/maven-enforcer/releases -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
@@ -43,10 +43,10 @@
                         <configuration>
                             <rules>
                                 <requireMavenVersion>
-                                    <version>3.9.9</version>
+                                    <version>3.9.16</version>
                                 </requireMavenVersion>
                                 <requireJavaVersion>
-                                    <version>21.0.4</version>
+                                    <version>25.0.1</version>
                                 </requireJavaVersion>
                             </rules>
                         </configuration>
@@ -55,11 +55,11 @@
             </plugin>
 
             <plugin>
-                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
+                <!-- https://central.sonatype.com/artifact/org.apache.maven.plugins/maven-compiler-plugin/versions -->
                 <!-- https://github.com/apache/maven-compiler-plugin/releases -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
+                <version>3.16.0</version>
                 <configuration>
                     <compilerArgs>
                         <arg>-parameters</arg>
@@ -71,11 +71,11 @@
             </plugin>
 
             <plugin>
-                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-clean-plugin -->
+                <!-- https://central.sonatype.com/artifact/org.apache.maven.plugins/maven-clean-plugin/versions -->
                 <!-- https://github.com/apache/maven-clean-plugin/releases -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-clean-plugin</artifactId>
-                <version>3.4.0</version>
+                <version>3.5.0</version>
                 <executions>
                     <execution>
                         <id>auto-clean</id>
@@ -87,12 +87,12 @@
                 </executions>
             </plugin>
 
-            <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-jar-plugin -->
+            <!-- https://central.sonatype.com/artifact/org.apache.maven.plugins/maven-jar-plugin/versions -->
             <!-- https://github.com/apache/maven-jar-plugin/releases -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.4.2</version>
+                <version>3.5.1</version>
                 <configuration>
                     <archive>
                         <addMavenDescriptor>false</addMavenDescriptor>
@@ -104,11 +104,11 @@
                 </configuration>
             </plugin>
 
-            <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-resources-plugin -->
+            <!-- https://central.sonatype.com/artifact/org.apache.maven.plugins/maven-resources-plugin/versions -->
             <!-- https://github.com/apache/maven-resources-plugin/releases -->
             <plugin>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>3.3.1</version>
+                <version>3.5.0</version>
                 <executions>
                     <execution>
                         <id>root-level-resources</id>
@@ -216,11 +216,11 @@
             </plugin>
 
             <plugin>
-                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
+                <!-- https://central.sonatype.com/artifact/org.apache.maven.plugins/maven-surefire-plugin/versions -->
                 <!-- https://github.com/apache/maven-surefire/releases -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.5.0</version>
+                <version>3.6.0</version>
             </plugin>
         </plugins>
     </build>

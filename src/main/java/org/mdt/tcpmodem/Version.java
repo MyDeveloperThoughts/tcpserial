@@ -5,8 +5,8 @@ import java.util.logging.Logger;
 public class Version
 {
     private static final Logger m_log = Logger.getLogger(Main.class.getName());
-    private final static String VERSION = "1.0";
-    private final static String RELEASE_DATE = "Oct 1, 2024";
+    private final static String VERSION = "1.1";
+    private final static String RELEASE_DATE = "Sep 6, 2026";
 
     public static void showStartupMessage()
     {
